@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sana Özel Video ❤️</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="heart-container"></div> 
+
+    <div class="video-container">
+        <h1>Sana Özel Bir Video Mesajım Var!</h1>
+        
+        <div class="video-and-gift-wrapper">
+            <video controls autoplay loop muted class="main-video">
+                <source src="videom.mp4" type="video/mp4" />
+                Tarayıcınız video oynatmayı desteklemiyor.
+            </video>
+            
+            <div class="gift-box" id="gift">
+                <div class="lid"></div>
+                <div class="ribbon"></div>
+                <div class="flowers">
+                    <img src="cicek.png" alt="Çiçek Buketi">
+                </div>
+            </div>
+        </div>
+        
+        <p>Umarım beğenirsin! 😊</p>
+        
+        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+            <a href="sayfa2.html" class="button">Geri Dön</a>
+        </div>
+    </div>
+
+    <script>
+        const heartContainer = document.querySelector('.heart-container');
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            const size = Math.random() * 20 + 10; 
+            heart.style.width = `${size}px`;
+            heart.style.height = `${size}px`;
+            heart.style.left = `${Math.random() * 100}vw`; 
+            heart.style.bottom = `${Math.random() * 50 - 100}px`; 
+            heart.style.animationDuration = `${Math.random() * 5 + 5}s`; 
+            heart.style.animationDelay = `${Math.random() * 3}s`; 
+            const randomHue = Math.floor(Math.random() * 30) + 330; 
+            const randomSaturation = Math.floor(Math.random() * 20) + 80; 
+            const randomLightness = Math.floor(Math.random() * 10) + 60; 
+            heart.style.backgroundColor = `hsl(${randomHue}, ${randomSaturation}%, ${randomLightness}%)`;
+            heart.style.boxShadow = `-2px 2px 5px hsla(${randomHue}, ${randomSaturation}%, ${randomLightness-20}%, 0.5)`;
+            heartContainer.appendChild(heart);
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+        setInterval(createHeart, 300); 
+        const gift = document.getElementById('gift');
+        if (gift) { 
+            gift.addEventListener('click', () => {
+                gift.classList.toggle('open');
+            });
+        }
+    </script>
+</body>
+</html>
