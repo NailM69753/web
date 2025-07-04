@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>İyi ki Doğdun Aşkım ❤️</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body> 
+    <div class="heart-container"></div> 
+
+    <div class="message-page content-wrapper"> 
+        <h1>🎉 İyi ki doğdun, biricik aşkım! 🎂</h1>
+        <p>Seninle yaşlanmak ve her an yanı başında olmak bana en büyük armağan. 
+           Bugün senin günün, mutluluksa sayende her gün benim. Baharda uyanan doğa gibi, 
+           ırmaklar ve deniz suyu gibi, güneşin ısıttığı papatya dolu kırlar gibi 
+           enerji dolu bir yaş seni bekliyor. Doğum günün kutlu olsun bebeğim. 
+           İyi ki varsın. İyi ki sıcacık duygular getiriyorsun hayatıma. 
+           Seni çok seviyorum! 💖</p>
+        <a href="sayfa3.html" class="button" style="margin-top: 2rem;">Videoyu İzle 🎬</a>
+    </div>
+
+    <script>
+        const heartContainer = document.querySelector('.heart-container');
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            const size = Math.random() * 20 + 10; 
+            heart.style.width = `${size}px`;
+            heart.style.height = `${size}px`;
+            heart.style.left = `${Math.random() * 100}vw`; 
+            
+            heart.style.bottom = `${Math.random() * 50 - 100}px`; 
+
+            heart.style.animationDuration = `${Math.random() * 5 + 5}s`; 
+            heart.style.animationDelay = `${Math.random() * 3}s`; 
+
+            const randomHue = Math.floor(Math.random() * 30) + 330; 
+            const randomSaturation = Math.floor(Math.random() * 20) + 80; 
+            const randomLightness = Math.floor(Math.random() * 10) + 60; 
+            heart.style.backgroundColor = `hsl(${randomHue}, ${randomSaturation}%, ${randomLightness}%)`;
+
+            heart.style.boxShadow = `-2px 2px 5px hsla(${randomHue}, ${randomSaturation}%, ${randomLightness-20}%, 0.5)`;
+
+            heartContainer.appendChild(heart);
+
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
