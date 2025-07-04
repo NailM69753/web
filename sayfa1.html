@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sürpriz Başlıyor 🎁</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="center">
+    <div class="heart-container"></div> 
+
+    <h1>Hoş Geldin! Sana Bir Sürprizim Var...</h1>
+    <p>Hazır mısın? ❤️</p>
+
+    <a href="sayfa2.html" class="button">Sürprizi Gör 🎁</a>
+
+    <script>
+        const heartContainer = document.querySelector('.heart-container');
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            const size = Math.random() * 20 + 10; 
+            heart.style.width = `${size}px`;
+            heart.style.height = `${size}px`;
+            heart.style.left = `${Math.random() * 100}vw`; 
+          
+            heart.style.bottom = `${Math.random() * 50 - 100}px`;
+
+            heart.style.animationDuration = `${Math.random() * 5 + 5}s`; 
+            heart.style.animationDelay = `${Math.random() * 3}s`; 
+            const randomHue = Math.floor(Math.random() * 30) + 330;
+            const randomSaturation = Math.floor(Math.random() * 20) + 80; 
+            const randomLightness = Math.floor(Math.random() * 10) + 60; 
+            heart.style.backgroundColor = `hsl(${randomHue}, ${randomSaturation}%, ${randomLightness}%)`;
+            heart.style.boxShadow = `-2px 2px 5px hsla(${randomHue}, ${randomSaturation}%, ${randomLightness-20}%, 0.5)`;
+
+
+            heartContainer.appendChild(heart);
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+        setInterval(createHeart, 300); 
+    </script>
+</body>
+</html>
